@@ -176,7 +176,7 @@ class ControlNextDiffusersScheduler:
     RETURN_TYPES = ("DIFFUSERS_SCHEDULER",)
     RETURN_NAMES = ("scheduler",)
     FUNCTION = "loadmodel"
-    CATEGORY = "ControlNeXtWrapper"
+    CATEGORY = "ControlNeXtSVD"
 
     def loadmodel(self, scheduler, sigma_min, sigma_max):
 
@@ -243,7 +243,7 @@ class ControlNextSampler:
     RETURN_TYPES = ("LATENT",)
     RETURN_NAMES = ("samples",)
     FUNCTION = "process"
-    CATEGORY = "ControlNextWrapper"
+    CATEGORY = "ControlNeXtSVD"
 
     def process(self, controlnext_pipeline, ref_image, pose_images, cfg_min, cfg_max, controlnext_cond_scale, motion_bucket_id, steps, seed, noise_aug_strength, fps, keep_model_loaded, 
                 context_size, context_overlap, optional_scheduler=None):
@@ -328,7 +328,7 @@ class ControlNextDecode:
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("images",)
     FUNCTION = "process"
-    CATEGORY = "ControlNextWrapper"
+    CATEGORY = "ControlNeXtSVD"
 
     def process(self, controlnext_pipeline, samples, decode_chunk_size):
         mm.soft_empty_cache()
@@ -482,7 +482,7 @@ class ControlNextSVDApply:
     RETURN_TYPES = ("MODEL",)
     RETURN_NAMES = ("model", )
     FUNCTION = "patch"
-    CATEGORY = "MimicMotionAdvanced"
+    CATEGORY = "ControlNeXtSVD"
 
     def patch(self, model, pose_images, strength, blocks, input_block_patch_after_skip):
 
@@ -522,8 +522,8 @@ class ControlNextSVDApply:
                 else:
                     controlnext_input = pose_images.to(h.dtype).to(h.device)
                 
-                print("controlnext_input shape: ", controlnext_input.shape) 
-                print("h shape: ", h.shape)
+                #print("controlnext_input shape: ", controlnext_input.shape) 
+                #print("h shape: ", h.shape)
 
                 conditional_controls = self.controlnext(controlnext_input, normalized_log_sigma)['output']
 
