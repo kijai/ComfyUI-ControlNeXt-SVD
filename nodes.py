@@ -93,7 +93,8 @@ class DownloadAndLoadControlNeXt:
         if not os.path.exists(unet_model_path):
             log.info(f"Downloading model to: {unet_model_path}")
             from huggingface_hub import snapshot_download
-            snapshot_download(repo_id="Pbihao/ControlNeXt", 
+            snapshot_download(repo_id="Kijai/ControlNeXt-SVD-V2-Comfy", 
+                                ignore_patterns=["*converted*"]
                                 local_dir=download_path, 
                                 local_dir_use_symlinks=False)
 
