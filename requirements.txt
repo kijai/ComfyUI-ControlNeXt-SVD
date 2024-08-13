@@ -1,0 +1,5 @@
+diffusers>=0.30.0
+accelerate
+huggingface_hub
+transformers
+opencv-python
