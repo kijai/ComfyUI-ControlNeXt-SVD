@@ -101,6 +101,7 @@ class DownloadAndLoadControlNeXt:
         log.info(f"Loading model from: {unet_model_path}")
         pbar.update(1)
 
+        svd_path = os.path.join(folder_paths.models_dir, "diffusers", "stable-video-diffusion-img2vid-xt-1-1")
         if not os.path.exists(svd_path):
             log.info(f"Downloading SVD model to: {svd_path}")
             from huggingface_hub import snapshot_download
