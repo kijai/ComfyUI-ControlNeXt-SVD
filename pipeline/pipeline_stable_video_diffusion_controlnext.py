@@ -549,7 +549,7 @@ class StableVideoDiffusionPipelineControlNeXt(DiffusionPipeline):
 
         self._guidance_scale = guidance_scale
 
-        noise_aug_strength = 0.02 #"¯\_(ツ)_/¯
+        #noise_aug_strength = 0.02 #"¯\_(ツ)_/¯
         added_time_ids = _get_add_time_ids(
             noise_aug_strength,
             image_embeddings.dtype,
@@ -649,7 +649,7 @@ class StableVideoDiffusionPipelineControlNeXt(DiffusionPipeline):
         else:
             frames = latents
 
-        self.maybe_free_model_hooks()
+        #self.maybe_free_model_hooks()
 
         if not return_dict:
             return frames
