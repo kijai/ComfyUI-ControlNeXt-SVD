@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-controlnext-svd"
+description = "These nodes include my wrapper for the original diffusers pipeline, as well as work in progress native ComfyUI implementation.\nFor the diffusers wrapper models should be downloaded automatically, for the native version you can get the unet [a/here](https://huggingface.co/Kijai/ControlNeXt-SVD-V2-Comfy/blob/main/controlnext-svd_v2-unet-fp16_converted.safetensors)."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["diffusers>=0.30.0", "accelerate", "huggingface_hub", "transformers", "opencv-python"]
+
+[project.urls]
+Repository = "https://github.com/kijai/ComfyUI-ControlNeXt-SVD"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-ControlNeXt-SVD"
+Icon = ""
